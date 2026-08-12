@@ -16,6 +16,18 @@ cp -avf "/ctx/system_files"/. /
 dnf5 copr enable -y imput/helium 
 dnf5 install -y tmux neovim ripgrep helium-bin
 dnf5 copr disable -y imput/helium 
+
+dnf5 copr enable -y lionheartp/Hyprland  
+dnf5 copr enable -y theblackdon/kineticwe  
+dnf5 swap -y kwin kineticwe  
+dnf5 remove -y kwin-common kwin-libs kglobalacceld kdecoration
+dnf5 install -y noctalia-git
+dnf5 copr disable -y imput/helium 
+dnf5 copr disable  -y lionheartp/Hyprland  
+dnf5 copr disable  -y theblackdon/kineticwe  
+
+
+
 dnf5 clean all
 # Use a COPR Example:
 #
