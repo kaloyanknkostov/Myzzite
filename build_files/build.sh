@@ -6,7 +6,6 @@ set -ouex pipefail
 cp -avf "/ctx/system_files"/. /
 
 dnf5 copr enable -y imput/helium 
-dnf5 -y copr enable atim/atuin
 dnf5 -y copr enable codelingo/coolercontrol 
 dnf5 -y copr enable pgdev/ghostty
 dnf5 -y copr enable atim/starship 
