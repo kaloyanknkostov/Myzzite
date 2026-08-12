@@ -5,37 +5,40 @@ set -ouex pipefail
 # Copy the contents of system_files/ of the git repo to /
 cp -avf "/ctx/system_files"/. /
 
-### Install packages
-
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
-
-# this installs a package from fedora repos
 dnf5 copr enable -y imput/helium 
-dnf5 install -y tmux neovim ripgrep helium-bin
-dnf5 copr disable -y imput/helium 
-
+dnf5 -y copr enable atim/atuin
+dnf5 -y copr enable codelingo/coolercontrol 
+dnf5 -y copr enable pgdev/ghostty
+dnf5 -y copr enable atim/starship 
+dnf5 -y copr enable varlad/yazi
 dnf5 copr enable -y lionheartp/Hyprland  
 dnf5 copr enable -y theblackdon/kineticwe  
+#____packages
+dnf5 install -y tmux neovim ripgrep helium-bin
+dnf5 install -y atuin bat coolercontrol docker eza fzf ghostty gradle maven postgresql postgresql-server starship stow yazi zoxide zsh 
+
+#____
 dnf5 swap -y kwin kineticwe  
 dnf5 remove -y kwin-common kwin-libs kglobalacceld kdecoration
 dnf5 install -y noctalia-git
-dnf5 copr disable -y imput/helium 
-dnf5 copr disable  -y lionheartp/Hyprland  
-dnf5 copr disable  -y theblackdon/kineticwe  
-
-
+#____
+#repos disabled
+dnf5 -y copr disable imput/helium 
+dnf5 -y copr disable atim/atuin
+dnf5 -y copr disable codelingo/coolercontrol 
+dnf5 -y copr disable pgdev/ghostty
+dnf5 -y copr disable atim/starship 
+dnf5 -y copr disable varlad/yazi
+dnf5 -y copr disable lionheartp/Hyprland  
+dnf5 -y copr disable theblackdon/kineticwe  
 
 dnf5 clean all
-# Use a COPR Example:
-#
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
-
-#### Example for enabling a System Unit File
-
 systemctl enable podman.socket
+systemctl enable coolercontrold.service
+#cursor
+curl https://cursor.com/install -fsS | bash
+# opencode
+curl -fsSL https://opencode.ai/install | bash
+# sdkman 
+curl -s "https://get.sdkman.io" | bash
+
