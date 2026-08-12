@@ -15,7 +15,7 @@ dnf5 -y copr enable codifryed/CoolerControl
 #____packages
 dnf5 install -y tmux neovim ripgrep helium-bin
 dnf5 install -y atuin bat coolercontrol docker eza ghostty postgresql postgresql-server starship stow yazi zoxide zsh 
-dnf5 install dnf-plugins-core
+dnf5 install -y dnf-plugins-core
 #____
 dnf5 swap -y kwin kineticwe  
 dnf5 remove -y kwin-common kwin-libs kglobalacceld kdecoration
