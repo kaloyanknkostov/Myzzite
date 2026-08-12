@@ -15,20 +15,18 @@ dnf5 -y copr enable theblackdon/kineticwe
 dnf5 -y copr enable codifryed/CoolerControl
 
 # --- Install Packages ---
-# Note: dnf-plugins-core merged here to streamline layer operations
 dnf5 install -y \
   tmux neovim ripgrep helium-bin dnf-plugins-core \
   atuin bat coolercontrol docker eza ghostty postgresql \
   postgresql-server starship stow yazi zoxide zsh
 
 # --- Desktop Component Swap & Clean ---
-# Using --skip-unavailable prevents non-zero exits if packages are missing
-dnf5 swap -y --skip-unavailable kwin kineticwe  
-dnf5 remove -y --skip-unavailable kwin-common kwin-libs kglobalacceld kdecoration
+# Uses explicit remove + install steps with --skip-unavailable to prevent build failures
+dnf5 remove -y --skip-unavailable kwin kwin-common kwin-libs kglobalacceld kdecoration
+dnf5 install -y kineticwe
 dnf5 install -y noctalia-git
 
 # --- Disable COPR Repositories ---
-# Mismatches (e.g. pgdev/ghostty vs scottames/ghostty) corrected to match enable section
 dnf5 -y copr disable imput/helium 
 dnf5 -y copr disable scottames/ghostty
 dnf5 -y copr disable atim/starship 
