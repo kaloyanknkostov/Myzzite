@@ -5,16 +5,17 @@ set -ouex pipefail
 # Copy the contents of system_files/ of the git repo to /
 cp -avf "/ctx/system_files"/. /
 
-dnf5 -y copr enable  imput/helium 
+dnf5 -y copr enable imput/helium 
 dnf5 -y copr enable scottames/ghostty
 dnf5 -y copr enable atim/starship 
 dnf5 -y copr enable lihaohong/yazi
 dnf5 -y copr enable lionheartp/Hyprland  
 dnf5 -y copr enable theblackdon/kineticwe  
+dnf5 -y copr enable codifryed/CoolerControl
 #____packages
 dnf5 install -y tmux neovim ripgrep helium-bin
-dnf5 install -y atuin bat coolercontrol docker eza ghostty postgresql postgresql-server starship stow yazi zoxide zsh 
-dnf5 install -y dnf-plugins-core
+dnf5 install -y atuin bat docker eza ghostty postgresql postgresql-server starship stow yazi zoxide zsh 
+dnf5 install -y dnf-plugins-core coolercontrol 
 #____
 dnf5 swap -y kwin kineticwe  
 dnf5 remove -y kwin-common kwin-libs kglobalacceld kdecoration
