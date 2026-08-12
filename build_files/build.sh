@@ -13,7 +13,7 @@ dnf5 -y copr enable lionheartp/Hyprland
 dnf5 -y copr enable theblackdon/kineticwe  
 dnf5 -y copr enable codifryed/CoolerControl
 #____packages
-dnf5 install -y tmux neovim ripgrep helium-bin
+dnf5 install -y neovim ripgrep helium-bin
 dnf5 install -y atuin bat docker eza ghostty postgresql postgresql-server starship stow yazi zoxide zsh 
 dnf5 install -y dnf-plugins-core coolercontrol 
 #____
@@ -30,7 +30,7 @@ dnf5 -y copr disable lionheartp/Hyprland
 dnf5 -y copr disable theblackdon/kineticwe
 dnf5 clean all
 systemctl enable podman.socket
-systemctl enable coolercontrold
+#systemctl enable coolercontrold
 #cursor
 #curl https://cursor.com/install -fsS | bash
 # opencode
