@@ -14,8 +14,9 @@ dnf5 -y copr enable theblackdon/kineticwe
 dnf5 -y copr enable codifryed/CoolerControl
 #____packages
 dnf5 install -y neovim ripgrep helium-bin curl
-dnf5 install -y atuin bat docker eza ghostty postgresql postgresql-server starship stow yazi zoxide zsh curl wget tar unzip zip
+dnf5 install -y atuin bat docker eza ghostty postgresql postgresql-server starship stow yazi zoxide zsh zsh-autosuggestions zsh-syntax-highlighting curl wget tar unzip zip
 dnf5 install -y dnf-plugins-core coolercontrol coolercontrold
+dnf5 install -y https://github.com/mroboff/vm-curator/releases/download/v1.4.0/vm-curator-1.4.0-1.x86_64.rpm
 #____
 dnf5 swap -y kwin kineticwe  
 dnf5 remove -y kwin-common kwin-libs kglobalacceld kdecoration
