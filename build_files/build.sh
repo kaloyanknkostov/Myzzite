@@ -9,8 +9,8 @@ dnf5 config-manager setopt keepcache=1
 # Copy the contents of system_files/ of the git repo to /
 cp -avf "/ctx/system_files"/. /
 
-dnf5 -y copr enable imput/helium 
-dnf5 -y copr enable scottames/ghostty
+#dnf5 -y copr enable imput/helium 
+#dnf5 -y copr enable scottames/ghostty
 dnf5 -y copr enable atim/starship 
 dnf5 -y copr enable lihaohong/yazi
 dnf5 -y copr enable lionheartp/Hyprland  
@@ -18,15 +18,15 @@ dnf5 -y copr enable theblackdon/kineticwe
 dnf5 -y copr enable codifryed/CoolerControl
 #____packages
 dnf5 install -y \
-    neovim ripgrep helium-bin atuin bat docker eza ghostty \
+    neovim ripgrep  atuin bat docker eza \
     postgresql postgresql-server starship stow yazi zoxide \
     zsh zsh-autosuggestions zsh-syntax-highlighting wget tar unzip zip \
     dnf-plugins-core coolercontrol coolercontrold
 dnf5 install -y https://github.com/mroboff/vm-curator/releases/download/v1.4.0/vm-curator-1.4.0-1.x86_64.rpm
 #____
-dnf5 swap -y kwin kineticwe  
-dnf5 remove -y kwin-common kwin-libs kglobalacceld kdecoration
-dnf5 install -y noctalia-git
+#dnf5 swap -y kwin kineticwe  
+#dnf5 remove -y kwin-common kwin-libs kglobalacceld kdecoration
+#dnf5 install -y noctalia-git
 #____remove bazzite apps
 dnf5 remove -y filelight plasma-systemmonitor kinfocenter bazzite-portal krdc krdc-libs krfb krfb-libs webapp-manager lutris \
     waydroid waydroid-selinux kate kwrite kate-plugins kate-libs \
@@ -43,8 +43,8 @@ rm -f \
     /usr/share/applications/Waydroid.desktop
 #____
 #repos disabled
-dnf5 -y copr disable imput/helium 
-dnf5 -y copr disable scottames/ghostty
+#dnf5 -y copr disable imput/helium 
+#dnf5 -y copr disable scottames/ghostty
 dnf5 -y copr disable atim/starship 
 dnf5 -y copr disable lihaohong/yazi
 dnf5 -y copr disable lionheartp/Hyprland  
