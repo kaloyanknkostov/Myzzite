@@ -11,17 +11,13 @@ cp -avf "/ctx/system_files"/. /
 
 #dnf5 -y copr enable imput/helium 
 #dnf5 -y copr enable scottames/ghostty
-dnf5 -y copr enable atim/starship 
-dnf5 -y copr enable lihaohong/yazi
-dnf5 -y copr enable lionheartp/Hyprland  
-dnf5 -y copr enable theblackdon/kineticwe  
+#dnf5 -y copr enable lionheartp/Hyprland  
+#dnf5 -y copr enable theblackdon/kineticwe  
+#dnf5 -y copr enable atim/starship 
+#dnf5 -y copr enable lihaohong/yazi
 dnf5 -y copr enable codifryed/CoolerControl
 #____packages
-dnf5 install -y \
-    neovim ripgrep  atuin bat docker eza \
-    postgresql postgresql-server starship stow yazi zoxide \
-    zsh zsh-autosuggestions zsh-syntax-highlighting wget tar unzip zip \
-    dnf-plugins-core coolercontrol coolercontrold
+dnf5 install -y dnf-plugins-core coolercontrol coolercontrold
 dnf5 install -y https://github.com/mroboff/vm-curator/releases/download/v1.4.0/vm-curator-1.4.0-1.x86_64.rpm
 #____
 #dnf5 swap -y kwin kineticwe  
@@ -45,11 +41,11 @@ rm -f \
 #repos disabled
 #dnf5 -y copr disable imput/helium 
 #dnf5 -y copr disable scottames/ghostty
-dnf5 -y copr disable atim/starship 
-dnf5 -y copr disable lihaohong/yazi
-dnf5 -y copr disable lionheartp/Hyprland  
-dnf5 -y copr disable theblackdon/kineticwe
-dnf5 -y copr disable codifryed/CoolerControl
+#dnf5 -y copr disable theblackdon/kineticwe
+#dnf5 -y copr disable lionheartp/Hyprland  
+#dnf5 -y copr disable atim/starship 
+#dnf5 -y copr disable lihaohong/yazi
+#dnf5 -y copr disable codifryed/CoolerControl
 
 # Do not run `dnf5 clean all` — it wipes /var/cache/libdnf5 and defeats the cache mount.
 # Reset keepcache so the installed OS does not retain RPMs under /var.
